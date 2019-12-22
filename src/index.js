@@ -54,7 +54,7 @@ app.get('/starships', async (req, res) =>{
     
     const results = await getStarship()
     const StarshipsInfo = await getInfo(results)
-    const names = await getName(results)
+    const names = getName(results)
     for (i = 0; i <= names.length - 1; i++){
         console.log(names[i])
         redis_client.setex(names[i], 80600, JSON.stringify(StarshipsInfo[names[i]]))
