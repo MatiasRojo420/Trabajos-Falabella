@@ -18,6 +18,9 @@ app.use(bodyParser.json())
 
 app.post('/starships', (req, res) =>{
     redis_client.keys('*', async (err, resp) =>{
+         if (resp.length <= 0){
+            res.send('You have no ships in the database moron')
+        }
         res.json(resp)
     }) 
 })
@@ -60,7 +63,7 @@ app.get('/starships', async (req, res) =>{
         redis_client.setex(names[i], 80600, JSON.stringify(StarshipsInfo[names[i]]))
 
     }
-
+    res.send('Database succesfully created, proceed to check for the information with method POST and check for particular ships using /(name of the ship)')
 })
 
 app.listen(port, () => {
