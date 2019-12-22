@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 app.post('/starships', (req, res) =>{
     redis_client.keys('*', async (err, resp) =>{
          if (resp.length <= 0){
-            res.send('You have no ships in the database moron')
+            res.send('You have no ships in the database,dummy')
         }
         res.json(resp)
     }) 
@@ -30,7 +30,7 @@ app.post('/starships/:name', async (req, res) => {
         const respuesta = JSON.parse(resp)
         const response = respuesta
         if (response === null) {
-            res.send("Esa nave no existe inculto de mierda")
+            res.send("Esa nave no existe inculto, que Dios se apiade de tu alma")
         }
         console.log(response)
         res.json(response)
@@ -45,7 +45,7 @@ app.post('/starships/:name/:info', async (req, res) => {
         const respuesta = JSON.parse(resp)
         const response = respuesta[informacion]
         if (response === undefined) {
-            res.send("Qué te fumaste? has visto star wars alguna vez en tu vida?")
+            res.send("Qué te fumaste? has visto Star Wars alguna vez en tu vida?")
         }
         res.json(respuesta[informacion])
         
