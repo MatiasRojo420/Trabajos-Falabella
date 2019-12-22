@@ -1,5 +1,5 @@
 
-const getName = async (resultados) => {
+const getName = (resultados) => {
     let ShipNames = []
     const ship = resultados
      for (i = 0; i <= ship.length - 1; i++){
