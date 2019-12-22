@@ -53,7 +53,7 @@ app.post('/starships/:name/:info', async (req, res) => {
 app.get('/starships', async (req, res) =>{
     
     const results = await getStarship()
-    const StarshipsInfo = await getInfo(results)
+    const StarshipsInfo = getInfo(results)
     const names = getName(results)
     for (i = 0; i <= names.length - 1; i++){
         console.log(names[i])
