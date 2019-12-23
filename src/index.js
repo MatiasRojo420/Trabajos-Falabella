@@ -47,7 +47,7 @@ app.post('/starships/:name/:info', async (req, res) => {
         if (response === undefined) {
             res.send("Qué te fumaste? has visto Star Wars alguna vez en tu vida?")
         }
-        res.json(respuesta[informacion])
+        res.json(`${informacion}: ${respuesta[informacion]}`)
         
     })
     
