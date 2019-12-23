@@ -10,6 +10,7 @@ describe('getName', () => {
 
         const names = getName(resultados) 
         expect(Array.isArray(names)).toBe(true)
+        expect(names).toHaveLength(3)
         expect(names[2]).toEqual('Death Star')
     })
 })
